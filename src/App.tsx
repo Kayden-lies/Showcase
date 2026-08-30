@@ -20,10 +20,10 @@ export default function App() {
       <div className="absolute top-4 right-4 z-20">
         <a
           href="./showcase/"
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:border-blue-500/50 text-xs font-mono text-zinc-300 transition-colors backdrop-blur-md shadow-lg"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-xs font-mono text-zinc-200 transition-colors backdrop-blur-md shadow-md"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-          <span>HOP 2026 Showcase</span>
+          <span>Project Showcase Portal</span>
           <span className="text-zinc-500">→</span>
         </a>
       </div>

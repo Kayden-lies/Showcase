@@ -10,6 +10,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { ShowcaseSubmission, ShowcaseFormErrors } from '../../types';
 import { submitShowcaseProject, isValidUrl, isValidEmail } from '../../utils/showcaseService';
+import logoA from '../../assets/Logo_A.png';
 
 const INITIAL_FORM_STATE: ShowcaseSubmission = {
   teamName: '',
@@ -182,49 +183,56 @@ export default function ShowcaseForm() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-8 shadow-lg"
+            className="rounded-xl bg-zinc-900 border border-zinc-800 p-6 sm:p-10 shadow-xl"
           >
             <div className="max-w-xl mx-auto text-center">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mx-auto mb-4">
-                <CheckCircle2 className="w-6 h-6" />
+              <div className="flex items-center justify-center gap-4 mb-6">
+                <img
+                  src={logoA}
+                  alt="AIDN Logo"
+                  className="h-[85px] sm:h-[94px] w-auto object-contain"
+                />
+                <div className="w-10 h-10 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                  <CheckCircle2 className="w-5 h-5" />
+                </div>
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-bold text-zinc-100 mb-3">
+              <h2 className="text-xl sm:text-2xl font-bold text-zinc-100 mb-3 tracking-tight">
                 Project Submitted Successfully
               </h2>
 
               <p className="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
-                Thank you for submitting your project from Hackers Occupied Pune. The AIDN × Genesis team will review your submission and feature selected projects across our upcoming website and community channels.
+                Thank you for submitting your project from Hackers Occupied Pune. The AIDN × Genesis team will review your submission and feature selected projects across our official platforms and community channels.
               </p>
 
-              <div className="w-full bg-zinc-950 border border-zinc-800/80 rounded-lg p-4 sm:p-5 text-left mb-6 space-y-3">
+              <div className="w-full bg-zinc-950 border border-zinc-800/80 rounded-lg p-5 text-left mb-6 space-y-3.5">
                 <div className="border-b border-zinc-800 pb-3 flex justify-between items-start">
                   <div>
-                    <span className="text-[11px] font-mono text-zinc-500 uppercase block">Project</span>
+                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider block">Project Name</span>
                     <span className="text-base font-semibold text-zinc-100">{submittedData.projectName}</span>
                   </div>
                   <div className="text-right">
-                    <span className="text-[11px] font-mono text-zinc-500 uppercase block">Team</span>
-                    <span className="text-sm font-medium text-zinc-300">{submittedData.teamName}</span>
+                    <span className="text-[10px] font-mono text-zinc-400 uppercase tracking-wider block">Team</span>
+                    <span className="text-sm font-medium text-zinc-200">{submittedData.teamName}</span>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                   <div>
-                    <span className="text-zinc-500 block">Lead / Representative:</span>
-                    <span className="text-zinc-300">{submittedData.teamRepresentative}</span>
+                    <span className="text-zinc-400 font-medium block">Lead Representative:</span>
+                    <span className="text-zinc-200">{submittedData.teamRepresentative}</span>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">Contact Email:</span>
-                    <span className="text-zinc-300">{submittedData.contactEmail}</span>
+                    <span className="text-zinc-400 font-medium block">Contact Email:</span>
+                    <span className="text-zinc-200 font-mono">{submittedData.contactEmail}</span>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">College / Organization:</span>
-                    <span className="text-zinc-300">{submittedData.organization}</span>
+                    <span className="text-zinc-400 font-medium block">College / Organization:</span>
+                    <span className="text-zinc-200">{submittedData.organization}</span>
                   </div>
                   <div>
-                    <span className="text-zinc-500 block">Tech Stack:</span>
-                    <span className="text-zinc-300 truncate block">{submittedData.techStack}</span>
+                    <span className="text-zinc-400 font-medium block">Tech Stack:</span>
+                    <span className="text-zinc-200 truncate block">{submittedData.techStack}</span>
                   </div>
                 </div>
               </div>
@@ -257,15 +265,20 @@ export default function ShowcaseForm() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25 }}
-            className="rounded-xl bg-zinc-900/90 border border-zinc-800 shadow-md overflow-hidden"
+            className="rounded-xl bg-zinc-900/90 border border-zinc-800 shadow-xl overflow-hidden"
           >
             {/* Form Top Bar */}
-            <div className="border-b border-zinc-800 px-6 py-4 bg-zinc-950/40 flex items-center justify-between">
-              <h2 className="text-sm font-semibold text-zinc-200">
-                Submission Details
-              </h2>
-              <span className="text-xs text-zinc-500">
-                * Indicates required field
+            <div className="border-b border-zinc-800 px-6 sm:px-8 py-4 sm:py-5 bg-zinc-950/60 flex items-center justify-between">
+              <div>
+                <h2 className="text-sm sm:text-base font-semibold text-zinc-100 tracking-tight">
+                  Official Submission Form
+                </h2>
+                <p className="text-xs text-zinc-400 mt-0.5">
+                  Hackers Occupied Pune • AIDN × Genesis Archive
+                </p>
+              </div>
+              <span className="text-[11px] font-mono text-zinc-400 bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded">
+                * Required fields
               </span>
             </div>
 
@@ -283,9 +296,9 @@ export default function ShowcaseForm() {
 
               {/* SECTION 1: TEAM INFORMATION */}
               <div className="space-y-4">
-                <div className="border-b border-zinc-800 pb-2">
-                  <h3 className="text-sm font-semibold text-zinc-100 uppercase tracking-wider">
-                    1. Team Information
+                <div className="border-b border-zinc-800 pb-2 flex items-center justify-between">
+                  <h3 className="text-xs font-semibold font-mono text-zinc-300 uppercase tracking-wider">
+                    01 / Team Information
                   </h3>
                 </div>
 
@@ -302,7 +315,7 @@ export default function ShowcaseForm() {
                       value={formData.teamName}
                       onChange={handleInputChange}
                       placeholder="e.g. Pune Dev Squad"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.teamName ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -325,7 +338,7 @@ export default function ShowcaseForm() {
                       value={formData.organization}
                       onChange={handleInputChange}
                       placeholder="e.g. COEP Tech University / Independent"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.organization ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -348,7 +361,7 @@ export default function ShowcaseForm() {
                       value={formData.teamRepresentative}
                       onChange={handleInputChange}
                       placeholder="e.g. Aarav Sharma"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.teamRepresentative ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -371,7 +384,7 @@ export default function ShowcaseForm() {
                       value={formData.contactEmail}
                       onChange={handleInputChange}
                       placeholder="e.g. team.lead@example.com"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.contactEmail ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -395,7 +408,7 @@ export default function ShowcaseForm() {
                     value={formData.teamMembers}
                     onChange={handleInputChange}
                     placeholder="e.g. Aarav Sharma, Priya Patel, Rohan Deshmukh"
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.teamMembers ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                   />
@@ -421,19 +434,19 @@ export default function ShowcaseForm() {
                     value={formData.socialHandles}
                     onChange={handleInputChange}
                     placeholder="e.g. GitHub: @aarav, LinkedIn: in/aarav, X: @aarav_dev"
-                    className="w-full px-3.5 py-2 rounded-lg bg-zinc-950 border border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors"
+                    className="w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors"
                   />
                   <p className="text-[11px] text-zinc-500">
-                    GitHub, LinkedIn, or X/Twitter handles for tagging and project attribution.
+                    GitHub, LinkedIn, or X/Twitter handles for attribution and spotlighting.
                   </p>
                 </div>
               </div>
 
               {/* SECTION 2: PROJECT DETAILS */}
               <div className="space-y-4 pt-2">
-                <div className="border-b border-zinc-800 pb-2">
-                  <h3 className="text-sm font-semibold text-zinc-100 uppercase tracking-wider">
-                    2. Project Details
+                <div className="border-b border-zinc-800 pb-2 flex items-center justify-between">
+                  <h3 className="text-xs font-semibold font-mono text-zinc-300 uppercase tracking-wider">
+                    02 / Project Details
                   </h3>
                 </div>
 
@@ -449,7 +462,7 @@ export default function ShowcaseForm() {
                     value={formData.projectName}
                     onChange={handleInputChange}
                     placeholder="e.g. NeuroShield"
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.projectName ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                   />
@@ -476,8 +489,8 @@ export default function ShowcaseForm() {
                     rows={2}
                     value={formData.shortDescription}
                     onChange={handleInputChange}
-                    placeholder="A concise 1-2 sentence summary of what the project does and who it is for."
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    placeholder="A concise 1-2 sentence summary of what the project does and its core value."
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.shortDescription ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors leading-relaxed`}
                   />
@@ -499,8 +512,8 @@ export default function ShowcaseForm() {
                     rows={3}
                     value={formData.problemStatement}
                     onChange={handleInputChange}
-                    placeholder="What specific problem or real-world challenge does your hackathon project address?"
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    placeholder="What specific challenge or real-world problem does your project address?"
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.problemStatement ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors leading-relaxed`}
                   />
@@ -523,7 +536,7 @@ export default function ShowcaseForm() {
                     value={formData.solutionApproach}
                     onChange={handleInputChange}
                     placeholder="Describe how your project solves this problem. Outline the architecture, core workflows, and technical implementation."
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.solutionApproach ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors leading-relaxed`}
                   />
@@ -545,13 +558,13 @@ export default function ShowcaseForm() {
                     type="text"
                     value={formData.techStack}
                     onChange={handleInputChange}
-                    placeholder="e.g. React, TypeScript, Python, FastAPI, PostgreSQL, Tailwind CSS, OpenAI API"
-                    className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                    placeholder="e.g. React, TypeScript, Python, FastAPI, PostgreSQL, Tailwind CSS"
+                    className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                       errors.techStack ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                     } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                   />
                   <p className="text-[11px] text-zinc-500">
-                    Languages, frameworks, APIs, databases, or hardware tools used.
+                    Languages, frameworks, APIs, databases, or developer tools utilized.
                   </p>
                   {errors.techStack && (
                     <p className="text-xs text-red-400 flex items-center gap-1 mt-1">
@@ -563,9 +576,9 @@ export default function ShowcaseForm() {
 
               {/* SECTION 3: PROJECT LINKS & MEDIA */}
               <div className="space-y-4 pt-2">
-                <div className="border-b border-zinc-800 pb-2">
-                  <h3 className="text-sm font-semibold text-zinc-100 uppercase tracking-wider">
-                    3. Project Links & Media
+                <div className="border-b border-zinc-800 pb-2 flex items-center justify-between">
+                  <h3 className="text-xs font-semibold font-mono text-zinc-300 uppercase tracking-wider">
+                    03 / Project Links & Media
                   </h3>
                 </div>
 
@@ -582,7 +595,7 @@ export default function ShowcaseForm() {
                       value={formData.repositoryUrl}
                       onChange={handleInputChange}
                       placeholder="https://github.com/org/repo"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.repositoryUrl ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -605,7 +618,7 @@ export default function ShowcaseForm() {
                       value={formData.prototypeUrl}
                       onChange={handleInputChange}
                       placeholder="https://myproject.example.com"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.prototypeUrl ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -628,7 +641,7 @@ export default function ShowcaseForm() {
                       value={formData.demoVideoUrl}
                       onChange={handleInputChange}
                       placeholder="https://youtube.com/watch?v=... or Loom"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.demoVideoUrl ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -651,7 +664,7 @@ export default function ShowcaseForm() {
                       value={formData.documentationUrl}
                       onChange={handleInputChange}
                       placeholder="https://docs.google.com/presentation/... or Notion"
-                      className={`w-full px-3.5 py-2 rounded-lg bg-zinc-950 border ${
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-zinc-950 border ${
                         errors.documentationUrl ? 'border-red-500 focus:ring-1 focus:ring-red-500' : 'border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500'
                       } text-zinc-100 placeholder-zinc-500 text-sm focus:outline-none transition-colors`}
                     />
@@ -667,30 +680,30 @@ export default function ShowcaseForm() {
               {/* SECTION 4: PERMISSION & CONSENT */}
               <div className="pt-2 border-t border-zinc-800">
                 <div 
-                  className={`p-4 rounded-lg bg-zinc-950 border ${
+                  className={`p-4 sm:p-5 rounded-lg bg-zinc-950 border ${
                     errors.consentGiven ? 'border-red-500/80 bg-red-950/10' : 'border-zinc-800'
                   } transition-colors`}
                   data-has-error={!!errors.consentGiven}
                 >
-                  <label htmlFor="consentGiven" className="flex items-start gap-3 cursor-pointer">
+                  <label htmlFor="consentGiven" className="flex items-start gap-3.5 cursor-pointer">
                     <input
                       id="consentGiven"
                       name="consentGiven"
                       type="checkbox"
                       checked={formData.consentGiven}
                       onChange={handleCheckboxChange}
-                      className="mt-0.5 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-zinc-100 focus:ring-zinc-500 shrink-0 cursor-pointer"
+                      className="mt-1 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-zinc-100 focus:ring-zinc-500 shrink-0 cursor-pointer"
                     />
-                    <div className="space-y-0.5">
-                      <span className="text-xs sm:text-sm text-zinc-300 leading-relaxed block">
-                        I grant AIDN and Genesis permission to feature, share, and promote this project, including screenshots, demo links, media, and submitted details, on official websites and community channels.
+                    <div className="space-y-1">
+                      <span className="text-xs sm:text-sm text-zinc-200 font-medium leading-relaxed block">
+                        I grant AIDN and Genesis permission to feature, share, and archive this project, including screenshots, demo links, media, and submitted details, on official platforms and community channels.
                         <span className="text-red-400 ml-1">*</span>
                       </span>
                     </div>
                   </label>
 
                   {errors.consentGiven && (
-                    <p className="text-xs text-red-400 flex items-center gap-1 mt-2 pl-7">
+                    <p className="text-xs text-red-400 flex items-center gap-1 mt-2 pl-7.5">
                       <AlertCircle className="w-3.5 h-3.5" /> {errors.consentGiven}
                     </p>
                   )}
@@ -707,7 +720,7 @@ export default function ShowcaseForm() {
                   type="submit"
                   id="btn-submit-project"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto min-w-[180px] order-1 sm:order-2 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-zinc-100 hover:bg-white active:bg-zinc-200 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-zinc-900 font-semibold text-sm transition-colors cursor-pointer"
+                  className="w-full sm:w-auto min-w-[200px] order-1 sm:order-2 inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-zinc-100 hover:bg-white active:bg-zinc-200 disabled:bg-zinc-800 disabled:text-zinc-500 disabled:cursor-not-allowed text-zinc-900 font-semibold text-sm transition-colors cursor-pointer shadow-sm"
                 >
                   {isSubmitting ? (
                     <>
